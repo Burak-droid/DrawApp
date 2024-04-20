@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d31b1d2d5824a04891ec49c2ca321dc
+guid: f8205af7b4c49914687fe005cd6fb0d3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -160,36 +160,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Linear_RGB_color_wheel_0
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 53
-        width: 137
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -64, y: 33}
-        - {x: -64, y: 39}
-        - {x: -54, y: 39}
-        - {x: -54, y: 33}
-      physicsShape:
-      - - {x: -73, y: 67}
-        - {x: -73, y: 84}
-        - {x: -63, y: 84}
-        - {x: -63, y: 67}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 371040817ec135343b18eb7221ecb9e2
-      internalID: -404648971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -200,16 +171,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Linear_RGB_color_wheel_0: -404648971
-      Linear_RGB_color_wheel_1: -995476958
-      Linear_RGB_color_wheel_2: -161453243
-      Linear_RGB_color_wheel_3: -881949631
-      Linear_RGB_color_wheel_4: 2042531448
-      Linear_RGB_color_wheel_5: -13579571
-      Linear_RGB_color_wheel_6: 353481044
-      Linear_RGB_color_wheel_7: 1556406699
-      Linear_RGB_color_wheel_8: 511240043
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

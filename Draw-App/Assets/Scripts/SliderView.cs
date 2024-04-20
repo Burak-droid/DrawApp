@@ -1,4 +1,5 @@
 ﻿using Draw;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,27 +8,32 @@ using UnityEngine.UI;
 public class SliderView : MonoBehaviour
 {
     public Slider slider;
-    public DrawController drawController; // DrawController nesnesi bu script üzerinden atanacak
-
+    public DrawController drawController;
+   
     private void Start()
     {
-        slider.onValueChanged.AddListener(OnSliderValueChanged); // Slider'ın değeri değiştiğinde çağrılacak metod
+        drawController.StartWidth = 0.1f;
+        slider.value = drawController.StartWidth;
+        // Slider'ın değeri değiştiğinde HandleSliderValueChanged metodunun çağrılmasını sağlar
+        slider.onValueChanged.AddListener(HandleSliderValueChanged);
+        slider.onValueChanged.AddListener(UpdateLineWidth);
+
     }
 
-    private void OnSliderValueChanged(float value)
+    private void HandleSliderValueChanged(float value)
     {
-        drawController.StartWidth = value; // Slider'ın değerine göre DrawController'daki startWidth güncelleniyor
+        drawController.StartWidth = value;
     }
 
-    private bool isopen = false;
-
-    //open the slider when clicking button
-
-    public void ClickButton()
+    private void UpdateLineWidth(float value)
     {
-        isopen = !isopen;
-        slider.gameObject.SetActive(isopen);
+        // Şu anda çizilen çizginin kalınlığını günceller
+        if (drawController.GetCurrentRenderer() != null)
+        {
+            
+            drawController.GetCurrentRenderer().endWidth = drawController.StartWidth;
+            drawController.GetCurrentRenderer().startWidth = drawController.StartWidth; 
+        }
     }
-
-
+  
 }
