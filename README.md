@@ -1,6 +1,8 @@
 # DrawApp
 Otsimo 2024 Game Dev Internship Task
 
+
+!!When you open the project, you will be able to see the project when you open the sample scene in the scene folder.
 Added features:
 
 -> 5 colors can be chosen.
