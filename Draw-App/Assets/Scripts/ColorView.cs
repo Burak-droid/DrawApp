@@ -15,7 +15,7 @@ using Draw;
     }
 
     // Butona bağlı fonksiyon.
-    public void ChangeColorToGreen()
+    public void ChangeColorToGreen() 
     {
         if (drawController.GetCurrentRenderer() != null)
         {

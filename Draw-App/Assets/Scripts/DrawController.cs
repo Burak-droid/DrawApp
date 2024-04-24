@@ -1,18 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Tilemaps.TilemapRenderer;
+
 
 
 namespace Draw
 {
     public class DrawController : MonoBehaviour
     {
+        public AudioSource audioSource;
+
+        private List<LineRenderer> lines = new List<LineRenderer>();
         private LineRenderer currentRenderer;
         private List<Vector2> touchPos = new List<Vector2>();
         private float startWidth;
         private Color lineColor;
-      
 
+
+        private int sortOrder = 0; //lineların sırası
+
+
+
+        //ı need to use startwidth, color and linerenderer from outsıde of this class
         public float StartWidth
         {
             get { return startWidth; }
@@ -31,12 +41,14 @@ namespace Draw
             set { currentRender = value; }
         }
 
-
-
-
         public LineRenderer GetCurrentRenderer()
         {
             return currentRenderer;
+        }
+
+        void Start()
+        {
+            currentRenderer = new LineRenderer();
         }
 
 
@@ -50,8 +62,14 @@ namespace Draw
                 if (touch.phase == TouchPhase.Began)
                 {
                     CreateNewLine(touchPosition);
+                    audioSource.Play(); // Parmak ekrana değdiğinde ses dosyasını çalmak için
                 }
-                else if (touch.phase == TouchPhase.Moved)
+                else if (touch.phase == TouchPhase.Ended)
+                {
+                    audioSource.Stop(); // Dokunmayı bıraktığında sesi durdurmak için 
+                }
+
+                if (touch.phase == TouchPhase.Moved)
                 {
                     touchPos.Add(touchPosition);
                     currentRenderer.positionCount = touchPos.Count;
@@ -59,7 +77,8 @@ namespace Draw
                 }
             }
         }
-       
+
+
 
 
         private void CreateNewLine(Vector2 lineStartPosition)
@@ -77,6 +96,7 @@ namespace Draw
             currentRenderer.startColor = Color.black;
             currentRenderer.endColor = Color.black;
 
+            currentRenderer.sortingOrder = sortOrder++;
 
             currentRenderer.startWidth = StartWidth;
             currentRenderer.endWidth = StartWidth;
@@ -84,10 +104,18 @@ namespace Draw
             currentRenderer.startColor = LineColor;
             currentRenderer.endColor = LineColor;
 
+
+            lines.Add(currentRenderer);
             touchPos.Clear();
             touchPos.Add(lineStartPosition);
+
+
+
         }
-    }
-    
-}
+
+
+
+    }//class
+
+}//namespace
 

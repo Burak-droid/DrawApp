@@ -14,7 +14,6 @@ public class SliderView : MonoBehaviour
     {
         drawController.StartWidth = 0.1f;
         slider.value = drawController.StartWidth;
-        // Slider'ın değeri değiştiğinde HandleSliderValueChanged metodunun çağrılmasını sağlar
         slider.onValueChanged.AddListener(HandleSliderValueChanged);
         slider.onValueChanged.AddListener(UpdateLineWidth);
 
@@ -30,7 +29,6 @@ public class SliderView : MonoBehaviour
         // Şu anda çizilen çizginin kalınlığını günceller
         if (drawController.GetCurrentRenderer() != null)
         {
-            
             drawController.GetCurrentRenderer().endWidth = drawController.StartWidth;
             drawController.GetCurrentRenderer().startWidth = drawController.StartWidth; 
         }
